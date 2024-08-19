@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { useState } from "react";
 import { Card } from "./Card";
 import { FaRegCopy } from "react-icons/fa6";
+import CreateKeyPairs from "./CreateKeys";
 
 export default function SecretRecoveryPhrase() {
   const [mnemonic, SetMnemonic] = useState<string>();
@@ -22,7 +23,10 @@ export default function SecretRecoveryPhrase() {
         </Button>
       </div>
       {mnemonic ? (
+        <>
           <Mnemonic mnemonic={mnemonic.split(" ")} mnemonicstr={mnemonic} />
+          <CreateKeyPairs mnemonic={mnemonic}/>
+          </>
         ) : (
           ""
         )}

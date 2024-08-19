@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils";
+import { Providers } from "./Providers";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -21,10 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Providers>
       <body  className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
-        )}>{children}</body>
+        )}>{children}
+        </body>
+        </Providers>
     </html>
   );
 }

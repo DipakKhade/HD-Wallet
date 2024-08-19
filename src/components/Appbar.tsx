@@ -4,14 +4,14 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Appbar() {
-  //   const session = useSession();
+    const session = useSession();
 
   return (
     <>
       <nav className="flex justify-between border border-gray-500 h-16 p-2">
         <div className="text-2xl font-semibold"></div>
         <div>
-          {/* {session.data?.user ? (
+          {session.data?.user ? (
              <div className="flex space-x-3">
             <Button>sign out</Button>
              <AvatarDemo profileImage={session.data?.user?.image as string}/> 
@@ -21,8 +21,7 @@ export default function Appbar() {
             <Button onClick={() => signIn("google")}>
               sign in
             </Button>
-          )} */}
-          <Button onClick={() => signIn("google")}>sign in</Button>
+          )}
         </div>
       </nav>
     </>

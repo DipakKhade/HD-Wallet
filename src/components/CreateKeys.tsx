@@ -7,6 +7,7 @@ import { Keypair } from "@solana/web3.js";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import { Card } from "./Card";
+import CopyToClickBord from "./CopyToclickBordButton";
 
 export default function CreateKeyPairs({mnemonic}:{mnemonic:string}){
     const [ BTCWalltes , SetBTCWallets ] = useState<number>(0)
@@ -30,12 +31,16 @@ export default function CreateKeyPairs({mnemonic}:{mnemonic:string}){
           console.log(Keypair.fromSecretKey(secret).publicKey.toBase58());
           SetBTCWallets(BTCWalltes+1)
         }}
-        >create a BTC Key</Button>
+        >create a BTC Wallet Key</Button>
 
         <div>
             {BTCWalltes>0 ? <>{
                 BTCPublicKeys.map((key,index)=>(
-                    <div key={index}>{key}</div>
+                    <div className="flex p-4" key={index}>
+                        <span>{key}</span>
+                        <span><CopyToClickBord text={key}/></span>
+                        
+                        </div>
                 ))
             }</>:''}
         </div>
@@ -54,11 +59,15 @@ export default function CreateKeyPairs({mnemonic}:{mnemonic:string}){
           console.log(Keypair.fromSecretKey(secret).publicKey.toBase58());
           SetETHWallets(ETHWalltes+1)
         }}
-        >create a ETH Key</Button>
+        >create a ETH Wallet Key</Button>
         <div>
             {ETHWalltes>0 ? <>{
                 ETHPublicKeys.map((key,index)=>(
-                    <div key={index}>{key}</div>
+                    <div className="flex p-4" key={index}>
+                    <span>{key}</span>
+                    <span><CopyToClickBord text={key}/></span>
+                    
+                    </div>
                 ))
             }</>:''}
         </div>
@@ -77,11 +86,15 @@ export default function CreateKeyPairs({mnemonic}:{mnemonic:string}){
           console.log(Keypair.fromSecretKey(secret).publicKey.toBase58());
           SetSOLWallets(SOLWalltes+1)
         }}
-        >create a ETH Key</Button>
+        >create a SOL Wallet Key</Button>
         <div>
             {SOLWalltes>0 ? <>{
                 SOLPublicKeys.map((key,index)=>(
-                    <div key={index}>{key}</div>
+                    <div className="flex p-4" key={index}>
+                    <span>{key}</span>
+                    <span><CopyToClickBord text={key}/></span>
+                    
+                    </div>
                 ))
             }</>:''}
         </div>
